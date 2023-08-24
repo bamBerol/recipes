@@ -1,16 +1,19 @@
-import React from "react";
-import Header from "./layout/Header/Header";
-import Main from "./layout/Main/Main";
-import Footer from "./layout/Footer/Footer";
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import StartPage from "./layout/StartPage/StartPage";
+import FullLayout from "./layout/fullLayout/FullLayout";
+
 import "./App.css";
 
 function App() {
+  const [isStartClicked, setIsStartClicked] = useState(true);
+
+  const start = isStartClicked ? <FullLayout /> : <StartPage />;
+
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">{start}</div>
+    </Router>
   );
 }
 
