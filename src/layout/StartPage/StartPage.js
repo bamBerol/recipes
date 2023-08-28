@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
+import style from "./StartPage.module.css";
 
-const StartPage = () => {
+const StartPage = ({ startClick }) => {
   return (
-    <div>
-      Start Page
-      <img src={logo} alt="" />
+    <div
+      className={`${style.startPage}  d-flex flex-column align-items-center justify-content-center`}>
+      <Link to="/" className={style.logo} onClick={startClick}>
+        <img src={logo} alt="Logo" />
+      </Link>
+      <p>Click on logo</p>
     </div>
   );
 };

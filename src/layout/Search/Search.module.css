@@ -1,0 +1,35 @@
+.search {
+  padding: 2rem 0;
+}
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #004562;
+}
+.title p {
+  margin-bottom: 1.5rem;
+}
+.input {
+  gap: 1rem;
+}
+.inputSearch {
+  font-size: 1.2rem;
+}
+.btn,
+.searchBtn {
+  padding: 0.5rem 1.5rem;
+  background-color: #004562;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.btn:hover,
+.searchBtn:hover {
+  color: #004562;
+  background-color: #d6dfe1;
+  border: 1px solid #004562;
+  transition: all 0.3s;
+}

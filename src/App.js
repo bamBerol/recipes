@@ -6,9 +6,17 @@ import FullLayout from "./layout/fullLayout/FullLayout";
 import "./App.css";
 
 function App() {
-  const [isStartClicked, setIsStartClicked] = useState(true);
+  const [isStartClicked, setIsStartClicked] = useState(false);
 
-  const start = isStartClicked ? <FullLayout /> : <StartPage />;
+  const handleStartPageClick = () => {
+    setIsStartClicked(true);
+  };
+
+  const start = isStartClicked ? (
+    <FullLayout />
+  ) : (
+    <StartPage startClick={handleStartPageClick} />
+  );
 
   return (
     <Router>

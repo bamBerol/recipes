@@ -1,12 +1,10 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "../Home/Home";
 import Categories from "../Categories/Categories";
 import Search from "../Search/Search";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import styles from "./Main.module.css";
-
-import { useNavigate } from "react-router-dom";
+import style from "./Main.module.css";
 
 const Main = () => {
   let navigate = useNavigate();
@@ -14,8 +12,9 @@ const Main = () => {
   const handleBackBtnClick = () => {
     navigate("/");
   };
+
   return (
-    <main className={`${styles.main} container d-flex`}>
+    <main className={`${style.main} container-fluid d-flex`}>
       <Routes>
         <Route path="/" exact element={<Home />}></Route>
         <Route

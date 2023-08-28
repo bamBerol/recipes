@@ -1,0 +1,44 @@
+.categories {
+  padding: 2rem 0;
+}
+
+.categories > div > p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #004562;
+}
+.categoriesList {
+  margin: 0;
+  padding: 2rem 0;
+  list-style-type: none;
+  gap: 2rem;
+}
+.backBtn {
+  padding: 0.5rem 1.5rem;
+  background-color: #004562;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.backBtn:hover {
+  color: #004562;
+  background-color: #d6dfe1;
+  border: 1px solid #004562;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .categories {
+    padding: 3rem 0;
+  }
+  .categoriesList {
+    width: 100%;
+    padding: 3rem 0;
+  }
+  .backBtn {
+    font-size: 1.5rem;
+  }
+}

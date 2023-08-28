@@ -1,0 +1,17 @@
+.startPage {
+  width: 100%;
+  height: 100vh;
+  background-color: #cdcdcd;
+}
+.logo img {
+  width: 500px;
+  height: 500px;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.startPage p {
+  font-size: 1.5rem;
+  color: #004562;
+  margin-top: 1.5rem;
+}
