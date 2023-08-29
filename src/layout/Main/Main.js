@@ -14,7 +14,8 @@ const Main = () => {
   };
 
   return (
-    <main className={`${style.main} container-fluid d-flex`}>
+    <main
+      className={`${style.main} d-flex align-items-center justify-content-center`}>
       <Routes>
         <Route path="/" exact element={<Home />}></Route>
         <Route

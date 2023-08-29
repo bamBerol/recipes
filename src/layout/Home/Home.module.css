@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   gap: 2rem;
 }
 .btn {
@@ -9,14 +9,14 @@
   text-decoration: none;
   font-size: 2rem;
   font-weight: bold;
-  background-color: #004562;
+  background-color: rgba(0, 69, 98, 0.8);
   color: white;
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
 .btn:hover {
   color: #004562;
-  background-color: #d6dfe1;
+  background-color: rgba(214, 223, 225, 0.8);
   border: 1px solid #004562;
   transition: all 0.3s;
 }

@@ -1,4 +1,5 @@
 .categories {
+  width: 90%;
   padding: 2rem 0;
 }
 
@@ -11,8 +12,8 @@
 .categoriesList {
   margin: 0;
   padding: 2rem 0;
+  padding-bottom: 0;
   list-style-type: none;
-  gap: 2rem;
 }
 .backBtn {
   padding: 0.5rem 1.5rem;

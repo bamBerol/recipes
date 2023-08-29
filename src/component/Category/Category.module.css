@@ -1,28 +1,36 @@
 .li {
-  width: 100%;
-  background: url(../../../src/images/breakfast.jpg) center;
-  background-size: cover;
-  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+  margin-bottom: 2rem;
 }
-.card {
-  height: 300px;
-  padding: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
+.cardB img {
+  height: 250px;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+.cardText {
   color: #004562;
-  border-radius: 0.5rem;
+  background-color: #d6dfe1;
   transition: all 0.3s;
 }
-
+.title {
+  font-weight: 600;
+}
 @media (min-width: 768px) {
-  .li,
-  .card {
-    width: 300px;
-  }
-  .card:hover {
+  .li:hover {
     cursor: pointer;
+  }
+  .li:hover .cardB img {
+    transform: scale(1.1);
+
+    transition: transform 0.2s;
+  }
+  .li:hover .cardText {
     color: #d6dfe1;
     background-color: #004562;
     transition: all 0.3s;
+  }
+  .li:hover .title {
+    font-weight: bold;
   }
 }

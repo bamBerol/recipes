@@ -1,11 +1,12 @@
 .startPage {
   width: 100%;
   height: 100vh;
-  background-color: #cdcdcd;
+  background: url(../../images/home.jpg) center;
+  background-size: cover;
 }
 .logo img {
-  width: 500px;
-  height: 500px;
+  width: 250px;
+  height: 250px;
 }
 .logo:hover {
   cursor: pointer;
@@ -14,4 +15,10 @@
   font-size: 1.5rem;
   color: #004562;
   margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .logo img {
+    width: 500px;
+    height: 500px;
+  }
 }

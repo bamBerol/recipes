@@ -11,12 +11,12 @@ const Categories = ({ backBtn }) => {
 
   return (
     <section
-      className={`${style.categories} container-fluid d-flex flex-column align-items-center justify-content-between`}>
+      className={`${style.categories} d-flex flex-column align-items-center justify-content-between`}>
       <div>
         <p className="d-flex text-center">Choose category:</p>
       </div>
       <ul
-        className={`${style.categoriesList} container-fluid d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
+        className={`${style.categoriesList} row row-cols-1 row-cols-sm-2 row-cols-lg-3  justify-content-center g-4`}>
         {categoryList}
       </ul>
       <button className={`${style.backBtn}`} onClick={backBtn}>
