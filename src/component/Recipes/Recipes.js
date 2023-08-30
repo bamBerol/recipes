@@ -1,7 +1,47 @@
 import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Recipe from "../Recipe/Recipe";
+import style from "./Recipes.module.css";
 
 const Recipes = () => {
-  return <section>RECIPES</section>;
+  let { name } = useParams();
+
+  let navigate = useNavigate();
+
+  const recipes = [
+    "recipe1",
+    "recipe2",
+    "recipe3",
+    "recipe4",
+    "recipe5",
+    "recipe6",
+    "recipe7",
+    "recipe8",
+    "recipe9",
+    "recipe10",
+  ];
+
+  const handleBackBtn = () => {
+    navigate("/categories");
+  };
+
+  let showRecipes = recipes.map((recipe) => (
+    <Recipe key={recipe} name={name} recipeName={recipe} />
+  ));
+
+  return (
+    <section
+      className={`${style.recipes} d-flex flex-column align-items-center justify-content-between`}>
+      <h2 className={`${style.title}`}>{name}:</h2>
+      <ul
+        className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
+        {showRecipes}
+      </ul>
+      <button onClick={handleBackBtn} className={`${style.backBtn}`}>
+        Back
+      </button>
+    </section>
+  );
 };
 
 export default Recipes;

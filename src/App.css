@@ -6,7 +6,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  /*font-family: ;*/
+  font-family: "Open Sans", sans-serif;
 }
 .App {
   display: flex;

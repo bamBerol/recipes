@@ -5,18 +5,19 @@ import style from "./Home.module.css";
 const Home = () => {
   return (
     <section
-      className={`${style.home} d-flex flex-column flex-lg-row justify-content-evenly`}>
-      <div className={`d-flex align-items-center justify-content-center`}>
+      className={`${style.home} d-flex container-fluid flex-column flex-lg-row align-items-center justify-content-evenly`}>
+      <div
+        className={`d-flex container align-items-center justify-content-center`}>
         <Link
           to="/categories"
-          className={`${style.btn} d-flex align-items-center justify-content-center`}>
+          className={`${style.btnBody} d-flex align-items-center justify-content-center`}>
           Categories
         </Link>
       </div>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="d-flex container align-items-center justify-content-center">
         <Link
           to="/search"
-          className={`${style.btn} d-flex align-items-center justify-content-center`}>
+          className={`${style.btnBody} d-flex align-items-center justify-content-center`}>
           Search
         </Link>
       </div>

@@ -1,11 +1,17 @@
 .home {
-  width: 100%;
   padding: 2rem 1rem;
+  background: linear-gradient(
+      97deg,
+      rgba(214, 223, 225, 0.3897934173669467) 100%,
+      rgba(214, 223, 225, 0.1516981792717087) 100%
+    ),
+    url(../../images/home2.jpg) center;
+  background-size: cover;
   gap: 2rem;
 }
-.btn {
+.btnBody {
   width: 100%;
-  height: 300px;
+  height: 250px;
   text-decoration: none;
   font-size: 2rem;
   font-weight: bold;
@@ -14,7 +20,7 @@
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
-.btn:hover {
+.btnBody:hover {
   color: #004562;
   background-color: rgba(214, 223, 225, 0.8);
   border: 1px solid #004562;
@@ -22,13 +28,13 @@
 }
 
 @media (min-width: 768px) {
-  .btn {
+  .btnBody {
     height: 300px;
     width: 400px;
   }
 }
 @media (min-width: 1400px) {
-  .btn {
+  .btnBody {
     width: 600px;
   }
 }

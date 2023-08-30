@@ -1,17 +1,23 @@
-.categories {
+.recipes {
   width: 100%;
+  flex-grow: 1;
   padding: 2.5rem 1rem;
 }
-.categoriesList {
+.recipesList {
   width: 100%;
   padding: 2.5rem 0;
   margin: 0;
+  flex-grow: 1;
   list-style-type: none;
   gap: 2rem;
 }
+.title {
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 0;
+}
 .backBtn {
   padding: 0.5rem 1.5rem;
-  margin-bottom: 2rem;
   background-color: #004562;
   color: white;
   border: 1px solid transparent;
