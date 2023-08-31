@@ -1,0 +1,18 @@
+.recipe {
+  width: 100%;
+  padding: 2rem 1rem;
+}
+.title {
+  margin: 0;
+  font-weight: 600;
+  color: #004562;
+}
+.bodyRecipe {
+  padding: 2.5rem 0;
+  color: #004562;
+}
+@media (min-width: 768px) {
+  .recipe {
+    padding: 2.5rem 1rem;
+  }
+}

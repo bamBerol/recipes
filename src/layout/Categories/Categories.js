@@ -1,13 +1,15 @@
-import React from "react";
-import Category from "../../component/Category/Category";
+import CategoryItem from "../../component/CategoryItem/CategoryItem";
 import style from "./Categories.module.css";
+import BackButton from "../../component/BackButton/BackButton";
 
-const Categories = ({ backBtn }) => {
+const Categories = ({ backBtn, categoryChoose }) => {
   const categories = ["Breakfast", "Dinner", "Lunch", "Snack", "Teatime"];
 
   const categoryList = categories.map((category) => {
     let name = category.toLowerCase();
-    return <Category key={name} name={name} />;
+    return (
+      <CategoryItem key={name} name={name} categoryChoose={categoryChoose} />
+    );
   });
 
   return (
@@ -17,9 +19,7 @@ const Categories = ({ backBtn }) => {
         className={`${style.categoriesList} d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
         {categoryList}
       </ul>
-      <button className={`${style.backBtn}`} onClick={backBtn}>
-        Back
-      </button>
+      <BackButton backBtn={backBtn} />
     </section>
   );
 };

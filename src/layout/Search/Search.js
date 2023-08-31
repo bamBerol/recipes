@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./Search.module.css";
+import BackButton from "../../component/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,9 +35,7 @@ const Search = ({ backBtn }) => {
           </button>
         </div>
       </div>
-      <button className={`${style.btn}`} onClick={backBtn}>
-        Back
-      </button>
+      <BackButton backBtn={backBtn} />
     </section>
   );
 };

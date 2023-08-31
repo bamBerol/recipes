@@ -1,0 +1,15 @@
+.backBtn {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--blue);
+  color: var(--white);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.backBtn:hover {
+  color: var(--blue);
+  background-color: var(--grey);
+  border: 1px solid var(--blue);
+  transition: all 0.3s;
+}

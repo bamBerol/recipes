@@ -1,13 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import breakfastImg from "../../images/breakfast.jpg";
 import dinnerImg from "../../images/dinner.jpg";
 import lunchImg from "../../images/lunch.jpg";
 import snackImg from "../../images/snack.jpg";
 import teaTimeImg from "../../images/teatime.jpg";
-import style from "./Category.module.css";
+import style from "./CategoryItem.module.css";
 
-const Category = ({ name }) => {
+const CategoryItem = ({ name, categoryChoose }) => {
   let photo;
 
   if (name === "breakfast") {
@@ -22,9 +21,15 @@ const Category = ({ name }) => {
     photo = teaTimeImg;
   }
 
+  const chooseCategory = () => {
+    categoryChoose(name);
+  };
   return (
     <>
-      <Link to={`/category/${name}`} className={`${style.link}`}>
+      <Link
+        to={`/category/${name}`}
+        className={`${style.link}`}
+        onClick={chooseCategory}>
         <div className={`${style.li} card border-0 rounded`}>
           <img src={photo} className={`${style.img} card-img-top`} alt={name} />
           <div
@@ -37,4 +42,4 @@ const Category = ({ name }) => {
   );
 };
 
-export default Category;
+export default CategoryItem;

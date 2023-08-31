@@ -1,6 +1,6 @@
-import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Recipe from "../Recipe/Recipe";
+import RecipeItem from "../RecipeItem/RecipeItem";
+import BackButton from "../BackButton/BackButton";
 import style from "./Recipes.module.css";
 
 const Recipes = () => {
@@ -25,8 +25,8 @@ const Recipes = () => {
     navigate("/categories");
   };
 
-  let showRecipes = recipes.map((recipe) => (
-    <Recipe key={recipe} name={name} recipeName={recipe} />
+  let showRecipeItem = recipes.map((recipe) => (
+    <RecipeItem key={recipe} name={name} recipeName={recipe} />
   ));
 
   return (
@@ -35,11 +35,9 @@ const Recipes = () => {
       <h2 className={`${style.title}`}>{name}:</h2>
       <ul
         className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
-        {showRecipes}
+        {showRecipeItem}
       </ul>
-      <button onClick={handleBackBtn} className={`${style.backBtn}`}>
-        Back
-      </button>
+      <BackButton backBtn={handleBackBtn} />
     </section>
   );
 };

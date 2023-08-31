@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import StartPage from "./layout/StartPage/StartPage";
 import FullLayout from "./layout/fullLayout/FullLayout";

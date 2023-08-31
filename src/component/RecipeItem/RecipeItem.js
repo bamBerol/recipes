@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import style from "./Recipe.module.css";
+import style from "./RecipeItem.module.css";
 
 import exampleImg from "../../images/snack.jpg";
 
-const Recipe = ({ name, recipeName }) => {
+const RecipeItem = ({ name, recipeName }) => {
   return (
     <Link
       to={`/category/${name}/${recipeName}`}
@@ -21,4 +20,4 @@ const Recipe = ({ name, recipeName }) => {
   );
 };
 
-export default Recipe;
+export default RecipeItem;
