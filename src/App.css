@@ -2,6 +2,9 @@
   --white: #ffffff;
   --blue: #004562;
   --grey: #d6dfe1;
+  --yellow: #ffcd59;
+  --red: #fc493e;
+  --background-color-home: rgba(0, 69, 98, 0.8);
 }
 * {
   box-sizing: border-box;
@@ -19,4 +22,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.blue {
+  color: var(--white);
+  background-color: var(--blue);
+}
+.yellow {
+  color: var(--blue);
+  background-color: var(--yellow);
 }

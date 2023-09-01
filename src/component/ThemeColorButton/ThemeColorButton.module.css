@@ -1,0 +1,22 @@
+.themeColorButton {
+  margin-top: 0.25rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.colorButton {
+  width: 0.9rem;
+  height: 0.9rem;
+  padding: 0.25rem;
+  border: 1px solid var(--blue);
+}
+.colorBlue {
+  background-color: var(--blue);
+}
+.colorYellow {
+  background-color: var(--yellow);
+  border: 1px solid var(--blue);
+}
+.active {
+  opacity: 1;
+  transition: all 0.3s;
+}

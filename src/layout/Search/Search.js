@@ -1,11 +1,13 @@
-import { useState } from "react";
-import style from "./Search.module.css";
+import { useContext, useState } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import BackButton from "../../component/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import style from "./Search.module.css";
 
 const Search = ({ backBtn }) => {
   const [search, setSearch] = useState("");
+  const theme = useContext(ThemeContext);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -30,7 +32,9 @@ const Search = ({ backBtn }) => {
             onKeyDown={(e) => (e.key === "Enter" ? handleSearchBtn() : null)}
             type="text"
             placeholder="Search here"></input>
-          <button className={`${style.searchBtn}`} onClick={handleSearchBtn}>
+          <button
+            className={`${style.searchBtn} ${theme.color}`}
+            onClick={handleSearchBtn}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>

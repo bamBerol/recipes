@@ -9,32 +9,3 @@
   background-size: cover;
   gap: 2rem;
 }
-.btnBody {
-  width: 100%;
-  height: 250px;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: rgba(0, 69, 98, 0.8);
-  color: white;
-  border-radius: 0.5rem;
-  transition: all 0.3s;
-}
-.btnBody:hover {
-  color: #004562;
-  background-color: rgba(214, 223, 225, 0.8);
-  border: 1px solid #004562;
-  transition: all 0.3s;
-}
-
-@media (min-width: 768px) {
-  .btnBody {
-    height: 300px;
-    width: 400px;
-  }
-}
-@media (min-width: 1400px) {
-  .btnBody {
-    width: 600px;
-  }
-}

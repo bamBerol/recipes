@@ -15,8 +15,7 @@
   transition: transform 0.2s;
 }
 .cardText {
-  background-color: #d6dfe1;
-  color: #004562;
+  padding: 1rem;
   z-index: 1;
   transition: all 0.2s;
 }
@@ -40,8 +39,8 @@
     transition: transform 0.2s;
   }
   .li:hover .cardText {
-    background-color: #004562;
-    color: #d6dfe1;
+    background-color: #d6dfe1;
+    color: #004562;
     font-weight: bold;
     transition: all 0.2s;
   }

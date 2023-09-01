@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import style from "./RecipeItem.module.css";
 
 import exampleImg from "../../images/snack.jpg";
 
 const RecipeItem = ({ name, recipeName }) => {
+  const theme = useContext(ThemeContext);
+
   return (
     <Link
       to={`/category/${name}/${recipeName}`}
@@ -13,8 +17,9 @@ const RecipeItem = ({ name, recipeName }) => {
         className={`${style.img} card-img-top`}
         alt={recipeName}
       />
-      <div className={`${style.cardText} card-body text-center rounded-bottom`}>
-        <h5 className={`${style.title} card-title`}>{recipeName}</h5>
+      <div
+        className={`${style.cardText} ${theme.color}  text-center rounded-bottom`}>
+        <h5 className={`${style.title} `}>{recipeName}</h5>
       </div>
     </Link>
   );

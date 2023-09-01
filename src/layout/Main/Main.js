@@ -5,6 +5,7 @@ import Categories from "../Categories/Categories";
 import Search from "../Search/Search";
 import Recipes from "../../component/Recipes/Recipes";
 import RecipeDetail from "../../component/RecipeDetail/RecipesDetail";
+import ThemeButton from "../ThemeButton/ThemeButton";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import style from "./Main.module.css";
 
@@ -24,6 +25,8 @@ const Main = () => {
   return (
     <main
       className={`${style.main} d-flex align-items-stretch justify-content-center`}>
+      <ThemeButton />
+
       <Routes>
         <Route path="/" exact element={<Home />}></Route>
         <Route
