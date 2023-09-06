@@ -15,7 +15,6 @@ function App() {
   };
 
   const handleChangeTheme = (theme) => {
-    console.log(theme);
     setThemeColor(theme);
   };
 

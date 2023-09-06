@@ -6,11 +6,16 @@ import style from "./HomeButton.module.css";
 const HomeButton = ({ nameBtn }) => {
   const theme = useContext(ThemeContext);
 
+  const opacity = {
+    opacity: 0.8,
+  };
+
   return (
     <div
       className={`d-flex container align-items-center justify-content-center`}>
       <Link
         to={`/${nameBtn}`}
+        style={opacity}
         className={`${style.btnBody} ${theme.color} d-flex align-items-center justify-content-center`}>
         {nameBtn}
       </Link>

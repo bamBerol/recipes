@@ -5,8 +5,6 @@ import style from "./ThemeColorButton.module.css";
 const ThemeColorButton = (props) => {
   const theme = useContext(ThemeContext);
 
-  console.log(props.themeColor, props.themeActive, props.nameOfClass);
-
   return (
     <>
       <div

@@ -7,7 +7,7 @@ const RecipeDetail = ({ categoryName }) => {
   let navigate = useNavigate();
 
   const handleBackBtn = () => {
-    navigate(`/category/${categoryName}`);
+    navigate(`/categories/${categoryName}`);
   };
 
   return (

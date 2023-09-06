@@ -31,7 +31,7 @@ const CategoryItem = ({ name, categoryChoose }) => {
   return (
     <>
       <Link
-        to={`/category/${name}`}
+        to={`/categories/${name}`}
         className={`${style.link} `}
         onClick={chooseCategory}>
         <div className={`${style.li}  ${theme.color} card border-0 rounded`}>

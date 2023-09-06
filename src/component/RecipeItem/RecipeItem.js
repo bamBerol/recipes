@@ -10,7 +10,7 @@ const RecipeItem = ({ name, recipeName }) => {
 
   return (
     <Link
-      to={`/category/${name}/${recipeName}`}
+      to={`/categories/${name}/${recipeName}`}
       className={`${style.li} card border-0 rounded`}>
       <img
         src={exampleImg}
@@ -18,8 +18,8 @@ const RecipeItem = ({ name, recipeName }) => {
         alt={recipeName}
       />
       <div
-        className={`${style.cardText} ${theme.color}  text-center rounded-bottom`}>
-        <h5 className={`${style.title} `}>{recipeName}</h5>
+        className={`${style.cardText} ${theme.color} d-flex flex-wrap h-100 text-center justify-content-center align-items-center rounded-bottom`}>
+        <h5 className={`${style.title}`}>{recipeName}</h5>
       </div>
     </Link>
   );

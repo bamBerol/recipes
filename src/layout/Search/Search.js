@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import BackButton from "../../component/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,8 @@ const Search = ({ backBtn }) => {
   const [search, setSearch] = useState("");
   const theme = useContext(ThemeContext);
 
+  const inputRef = useRef(null);
+
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -18,6 +20,14 @@ const Search = ({ backBtn }) => {
     setSearch("");
   };
 
+  const focusOnInput = () => {
+    inputRef.current.focus();
+  };
+
+  useEffect(() => {
+    focusOnInput();
+  }, []);
+
   return (
     <section
       className={`${style.search} container-fluid d-flex flex-column align-items-center justify-content-around justify-content-lg-evenly`}>
@@ -26,6 +36,7 @@ const Search = ({ backBtn }) => {
         <p>Search by name:</p>
         <div className={`${style.input} d-flex flex-column flex-lg-row`}>
           <input
+            ref={inputRef}
             className={`${style.inputSearch} form-control`}
             value={search}
             onChange={handleSearch}
