@@ -1,26 +1,36 @@
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import RecipeItem from "../RecipeItem/RecipeItem";
 import BackButton from "../BackButton/BackButton";
+import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import style from "./Recipes.module.css";
 
-const Recipes = ({ listOfRecipes }) => {
+const Recipes = () => {
+  const [recipesList, setRecipesList] = useState([]);
   let { name } = useParams();
   let navigate = useNavigate();
-
-  const recipes = listOfRecipes;
 
   const handleBackBtn = () => {
     navigate("/categories");
   };
 
-  console.log("lista", recipes);
+  useEffect(() => {
+    axios
+      .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
+      .then((res) => {
+        if (res.status === 200) {
+          setRecipesList(res.data.meals);
+        }
+      });
+  }, []);
 
-  let showRecipeItem = recipes.map((recipe) => (
-    <RecipeItem
-      key={recipe.recipe.label}
-      name={name}
-      recipeName={recipe.recipe.label}
-    />
+  if (recipesList.length === 0) {
+    return <LoadingIcon />;
+  }
+
+  let showRecipeItem = recipesList.map((recipe) => (
+    <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
   ));
 
   return (

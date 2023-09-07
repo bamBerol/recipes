@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import Home from "../Home/Home";
 import Categories from "../Categories/Categories";
 import Search from "../Search/Search";
@@ -12,40 +12,16 @@ import style from "./Main.module.css";
 
 const Main = () => {
   let [categoryName, setCategoryName] = useState("");
-  let [recipesList, setRecipesList] = useState();
 
   let navigate = useNavigate();
 
   const handleCategoryChoose = (name) => {
-    console.log(name, "category open");
-    let arr = name.split("");
-    let initial = arr.shift().toUpperCase();
-    let capitalize = [initial, ...arr].join("");
-
-    setCategoryName(capitalize);
+    setCategoryName(name);
   };
 
   const handleBackBtnClick = () => {
     navigate("/");
   };
-
-  const getRecipesList = () => {
-    axios
-      .get(
-        `https://api.edamam.com/api/recipes/v2?type=
-      public&app_id=c5d107fe&app_key=15390b6cb323a8eda394
-      766336317a01&mealType=${categoryName}
-    `
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data.hits);
-          setRecipesList(res.data.hits);
-        }
-      });
-  };
-
-  useEffect(getRecipesList, []);
 
   return (
     <main
@@ -61,9 +37,7 @@ const Main = () => {
               categoryChoose={(name) => handleCategoryChoose(name)}
             />
           }></Route>
-        <Route
-          path="/categories/:name"
-          element={<Recipes listOfRecipes={recipesList} />}></Route>
+        <Route path="/categories/:name" element={<Recipes />}></Route>
         <Route
           path="/categories/:name/:id"
           element={<RecipeDetail categoryName={categoryName} />}></Route>

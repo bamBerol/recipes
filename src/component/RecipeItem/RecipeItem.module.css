@@ -13,6 +13,7 @@
   transition: transform 0.2s;
 }
 .cardText {
+  height: max-content;
   padding: 1rem;
   z-index: 1;
   transition: all 0.2s;
