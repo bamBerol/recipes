@@ -8,11 +8,17 @@
   color: #004562;
 }
 .bodyRecipe {
-  padding: 2.5rem 0;
+  flex-grow: 1;
+  padding: 2rem 0;
   color: #004562;
 }
+
 @media (min-width: 768px) {
   .recipe {
     padding: 2.5rem 1rem;
+  }
+  .bodyRecipe {
+    width: 70%;
+    padding: 2.5rem 0;
   }
 }

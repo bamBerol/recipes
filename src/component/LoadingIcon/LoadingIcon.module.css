@@ -1,0 +1,6 @@
+.loadingDiv {
+  flex-grow: 1;
+}
+.loadingIcon {
+  background-color: transparent;
+}

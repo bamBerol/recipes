@@ -21,8 +21,8 @@ const CategoryItem = (props) => {
         <div className={`${style.li}  ${theme.color} card border-0 rounded`}>
           <img
             src={strCategoryThumb}
-            className={`${style.img} card-img-top`}
             alt={strCategory}
+            className={`${style.img} card-img-top`}
           />
           <div
             className={`${style.cardText}  ${theme.color} text-center rounded-bottom`}>
