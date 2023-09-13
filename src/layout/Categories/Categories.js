@@ -6,6 +6,7 @@ import BackButton from "../../component/BackButton/BackButton";
 import LoadingIcon from "../../component/LoadingIcon/LoadingIcon";
 
 const Categories = ({ backBtn, categoryChoose }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -18,9 +19,11 @@ const Categories = ({ backBtn, categoryChoose }) => {
       });
   }, []);
 
-  if (categories.length === 0) {
-    return <LoadingIcon />;
-  }
+  useEffect(() => {
+    if (categories.length !== 0) {
+      setIsLoading(false);
+    }
+  }, [categories]);
 
   const categoriesList = categories.map((category) => {
     return (
@@ -33,14 +36,21 @@ const Categories = ({ backBtn, categoryChoose }) => {
   });
 
   return (
-    <section
-      className={`${style.categories} d-flex flex-column align-items-center justify-content-between`}>
-      <ul
-        className={`${style.categoriesList} d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
-        {categoriesList}
-      </ul>
-      <BackButton backBtn={backBtn} />
-    </section>
+    <>
+      {isLoading ? (
+        <LoadingIcon />
+      ) : (
+        <section
+          className={`${style.categories} d-flex flex-column align-items-center justify-content-between`}>
+          <ul
+            className={`${style.categoriesList} d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-center`}>
+            {categoriesList}
+          </ul>
+          <BackButton backBtn={backBtn} />
+        </section>
+      )}
+      ;
+    </>
   );
 };
 

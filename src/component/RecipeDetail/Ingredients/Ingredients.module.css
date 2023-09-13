@@ -23,13 +23,19 @@
   border-bottom: 1px dotted var(--red);
 }
 .name {
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
 }
 @media (min-width: 768px) {
   .imgCard {
     margin-right: 3rem;
+    margin: 0 auto;
   }
   .ingredientsList {
     max-width: 300px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .aside {
   }
 }

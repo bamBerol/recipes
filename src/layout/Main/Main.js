@@ -11,7 +11,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import style from "./Main.module.css";
 
 const Main = () => {
-  let [categoryName, setCategoryName] = useState("");
+  const [categoryName, setCategoryName] = useState("");
 
   let navigate = useNavigate();
 

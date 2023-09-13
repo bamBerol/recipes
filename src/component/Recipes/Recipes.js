@@ -7,6 +7,7 @@ import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import style from "./Recipes.module.css";
 
 const Recipes = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [recipesList, setRecipesList] = useState([]);
   let { name } = useParams();
   let navigate = useNavigate();
@@ -25,24 +26,32 @@ const Recipes = () => {
       });
   }, []);
 
-  if (recipesList.length === 0) {
-    return <LoadingIcon />;
-  }
+  useEffect(() => {
+    if (recipesList.length !== 0) {
+      setIsLoading(false);
+    }
+  }, [recipesList]);
 
   let showRecipeItem = recipesList.map((recipe) => (
     <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
   ));
 
   return (
-    <section
-      className={`${style.recipes} d-flex flex-column align-items-center justify-content-between`}>
-      <h2 className={`${style.title}`}>{name}:</h2>
-      <ul
-        className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-stretch justify-content-center`}>
-        {showRecipeItem}
-      </ul>
-      <BackButton backBtn={handleBackBtn} />
-    </section>
+    <>
+      {isLoading ? (
+        <LoadingIcon />
+      ) : (
+        <section
+          className={`${style.recipes} d-flex flex-column align-items-center justify-content-between`}>
+          <h2 className={`${style.title}`}>{name}:</h2>
+          <ul
+            className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-stretch justify-content-center`}>
+            {showRecipeItem}
+          </ul>
+          <BackButton backBtn={handleBackBtn} />
+        </section>
+      )}
+    </>
   );
 };
 

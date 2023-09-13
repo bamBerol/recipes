@@ -1,4 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
+import axios from "axios";
 import ThemeContext from "../../context/ThemeContext";
 import BackButton from "../../component/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +8,7 @@ import style from "./Search.module.css";
 
 const Search = ({ backBtn }) => {
   const [search, setSearch] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
   const theme = useContext(ThemeContext);
 
   const inputRef = useRef(null);
@@ -16,8 +18,8 @@ const Search = ({ backBtn }) => {
   };
 
   const handleSearchBtn = () => {
-    console.log("search click =", search);
-    setSearch("");
+    console.log("search click");
+    setIsClicked(true);
   };
 
   const focusOnInput = () => {
@@ -27,6 +29,19 @@ const Search = ({ backBtn }) => {
   useEffect(() => {
     focusOnInput();
   }, []);
+
+  useEffect(() => {
+    console.log(isClicked, search);
+    if (isClicked) {
+      axios
+        .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+        .then((res) => {
+          console.log(res.data.meals);
+          setIsClicked(false);
+          setSearch("");
+        });
+    }
+  }, [isClicked]);
 
   return (
     <section

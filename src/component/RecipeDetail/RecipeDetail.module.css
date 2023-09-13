@@ -18,7 +18,13 @@
     padding: 2.5rem 1rem;
   }
   .bodyRecipe {
-    width: 70%;
+    width: 90%;
     padding: 2.5rem 0;
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .bodyRecipe {
+    width: 70%;
   }
 }

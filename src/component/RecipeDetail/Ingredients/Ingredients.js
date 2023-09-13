@@ -23,12 +23,14 @@ const Ingredients = (props) => {
   });
 
   return (
-    <div className={`d-flex flex-column `}>
+    <div className={`${style.aside} d-flex flex-column`}>
       <div className={`${style.imgCard}`}>
         <img src={photo} alt={name} className={`${style.recipeImg}`} />
       </div>
       <div>
-        <ul className={`${style.ingredientsList}`}>{list}</ul>
+        <ul className={`${style.ingredientsList} d-flex flex-column`}>
+          {list}
+        </ul>
       </div>
     </div>
   );
