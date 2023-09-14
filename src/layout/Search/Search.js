@@ -1,4 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ThemeContext from "../../context/ThemeContext";
 import BackButton from "../../component/BackButton/BackButton";
@@ -10,6 +11,7 @@ const Search = ({ backBtn }) => {
   const [search, setSearch] = useState("");
   const [isClicked, setIsClicked] = useState(false);
   const theme = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const inputRef = useRef(null);
 
@@ -18,8 +20,8 @@ const Search = ({ backBtn }) => {
   };
 
   const handleSearchBtn = () => {
-    console.log("search click");
     setIsClicked(true);
+    navigate(`/search/${search}`);
   };
 
   const focusOnInput = () => {
@@ -31,7 +33,6 @@ const Search = ({ backBtn }) => {
   }, []);
 
   useEffect(() => {
-    console.log(isClicked, search);
     if (isClicked) {
       axios
         .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)

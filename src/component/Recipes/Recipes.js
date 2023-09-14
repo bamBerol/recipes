@@ -9,21 +9,36 @@ import style from "./Recipes.module.css";
 const Recipes = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [recipesList, setRecipesList] = useState([]);
-  let { name } = useParams();
+
+  let { name, search } = useParams();
   let navigate = useNavigate();
 
   const handleBackBtn = () => {
-    navigate("/categories");
+    if (name !== undefined) {
+      navigate("/categories");
+    } else if (search !== undefined) {
+      navigate("/search");
+    }
   };
 
   useEffect(() => {
-    axios
-      .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
-      .then((res) => {
-        if (res.status === 200) {
-          setRecipesList(res.data.meals);
-        }
-      });
+    if (name !== undefined) {
+      axios
+        .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
+        .then((res) => {
+          if (res.status === 200) {
+            setRecipesList(res.data.meals);
+          }
+        });
+    } else if (search !== undefined) {
+      axios
+        .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+        .then((res) => {
+          if (res.status === 200) {
+            setRecipesList(res.data.meals);
+          }
+        });
+    }
   }, []);
 
   useEffect(() => {
@@ -43,7 +58,14 @@ const Recipes = () => {
       ) : (
         <section
           className={`${style.recipes} d-flex flex-column align-items-center justify-content-between`}>
-          <h2 className={`${style.title}`}>{name}:</h2>
+          {name !== undefined ? (
+            <h2 className={`${style.title}`}> {name} </h2>
+          ) : (
+            <h2 className={`${style.title} text-center`}>
+              {" "}
+              {"Result of search for " + search + " :"}
+            </h2>
+          )}
           <ul
             className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-stretch justify-content-center`}>
             {showRecipeItem}

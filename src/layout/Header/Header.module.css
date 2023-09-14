@@ -1,6 +1,9 @@
 .header {
-  position: relative;
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 .headerUpperPart {
   position: relative;
@@ -11,6 +14,7 @@
 .headerLowerPart {
   width: 100%;
   height: 2.5rem;
+  background-color: var(--white);
   border-bottom: 1px solid #ffe23e;
 }
 .logo {

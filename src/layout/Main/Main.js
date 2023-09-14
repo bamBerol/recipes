@@ -44,6 +44,8 @@ const Main = () => {
         <Route
           path="/search"
           element={<Search backBtn={handleBackBtnClick} />}></Route>
+        <Route path="/search/:search" element={<Recipes />}></Route>
+        <Route path="/search/:search/:id" element={<RecipeDetail />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </main>

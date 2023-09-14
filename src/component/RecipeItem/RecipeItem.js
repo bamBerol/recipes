@@ -1,16 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import style from "./RecipeItem.module.css";
 
 const RecipeItem = (props) => {
-  const theme = useContext(ThemeContext);
+  let { search, name } = useParams();
   let { strMeal, strMealThumb } = props.info;
+  const theme = useContext(ThemeContext);
 
   return (
     <div>
       <Link
-        to={`/categories/${props.name}/${strMeal}`}
+        to={
+          name !== undefined
+            ? `/categories/${name}/${strMeal}`
+            : `/search/${search}/${strMeal}`
+        }
         className={`${style.li} card border-0 rounded`}>
         <img
           src={strMealThumb}

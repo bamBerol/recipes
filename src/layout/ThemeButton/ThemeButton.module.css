@@ -5,8 +5,8 @@
 @media (min-width: 768px) {
   .themeButtons {
     display: flex;
-    position: absolute;
-    top: 1rem;
+    position: fixed;
+    top: 6rem;
     right: 1rem;
     cursor: pointer;
   }

@@ -5,7 +5,8 @@ const Footer = () => {
   let year = date.getFullYear();
 
   return (
-    <footer className={styles.footer}>
+    <footer
+      className={`${styles.footer} d-flex align-items-center justify-content-center`}>
       <p> &copy; devTro {year} All Rights Reserved.</p>
     </footer>
   );

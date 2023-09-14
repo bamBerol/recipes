@@ -15,11 +15,16 @@ const RecipeDetail = ({ categoryName }) => {
   const [measure, setMeasure] = useState([]);
   const [fullList, setFullList] = useState([]);
 
-  let { id } = useParams();
+  let { id, search } = useParams();
+
   let navigate = useNavigate();
 
   const handleBackBtn = () => {
-    navigate(`/categories/${categoryName}`);
+    if (categoryName !== undefined) {
+      navigate(`/categories/${categoryName}`);
+    } else if (search !== undefined) {
+      navigate(`/search/${search}`);
+    }
   };
 
   useEffect(() => {

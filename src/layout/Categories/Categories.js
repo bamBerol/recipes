@@ -49,7 +49,6 @@ const Categories = ({ backBtn, categoryChoose }) => {
           <BackButton backBtn={backBtn} />
         </section>
       )}
-      ;
     </>
   );
 };
