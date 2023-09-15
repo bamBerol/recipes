@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ThemeColorButton from "../../component/ThemeColorButton/ThemeColorButton";
 import style from "./ThemeButton.module.css";
 
 const ThemeButton = () => {
   let [themeActive, setThemeActive] = useState(false);
+  let themeButtonRef = useRef();
 
   const colorTheme = ["blue", "yellow"];
+
+  useEffect(() => {
+    let handleDocumentClick = (e) => {
+      if (!themeButtonRef.current.contains(e.target)) {
+        console.log("cos innego");
+        setThemeActive(false);
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
 
   const handlethemeActive = () => {
     setThemeActive(!themeActive);
@@ -30,7 +46,7 @@ const ThemeButton = () => {
 
   return (
     <>
-      <div className={`${style.themeButtons} flex-column`}>
+      <div className={`${style.themeButtons} flex-column`} ref={themeButtonRef}>
         <svg
           onClick={handlethemeActive}
           xmlns="http://www.w3.org/2000/svg"

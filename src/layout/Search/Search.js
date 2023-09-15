@@ -1,6 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import ThemeContext from "../../context/ThemeContext";
 import BackButton from "../../component/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,19 +8,31 @@ import style from "./Search.module.css";
 
 const Search = ({ backBtn }) => {
   const [search, setSearch] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+  //const [isClicked, setIsClicked] = useState(false);
+
   const theme = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const inputRef = useRef(null);
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toLowerCase());
   };
 
   const handleSearchBtn = () => {
-    setIsClicked(true);
-    navigate(`/search/${search}`);
+    let regex = /^[A-Za-z]{3,10}$/;
+    let nameSearch = search;
+
+    if (regex.test(nameSearch) !== false) {
+      //setIsClicked(true);
+      navigate(`/search/${search}`);
+    } else {
+      alert(
+        "The entered name must have a min. 3 max 10 characters without spaces, numbers and special characters"
+      );
+      setSearch("");
+      focusOnInput();
+    }
   };
 
   const focusOnInput = () => {
@@ -31,18 +42,6 @@ const Search = ({ backBtn }) => {
   useEffect(() => {
     focusOnInput();
   }, []);
-
-  useEffect(() => {
-    if (isClicked) {
-      axios
-        .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
-        .then((res) => {
-          console.log(res.data.meals);
-          setIsClicked(false);
-          setSearch("");
-        });
-    }
-  }, [isClicked]);
 
   return (
     <section

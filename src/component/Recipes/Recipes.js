@@ -5,6 +5,7 @@ import RecipeItem from "../RecipeItem/RecipeItem";
 import BackButton from "../BackButton/BackButton";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import style from "./Recipes.module.css";
+import ErrorPage from "../../layout/ErrorPage/ErrorPage";
 
 const Recipes = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,11 @@ const Recipes = () => {
         .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
         .then((res) => {
           if (res.status === 200) {
-            setRecipesList(res.data.meals);
+            if (res.data.meals && res.data.meals.length > 0) {
+              setRecipesList(res.data.meals);
+            } else {
+              setRecipesList([]);
+            }
           }
         });
     } else if (search !== undefined) {
@@ -35,21 +40,36 @@ const Recipes = () => {
         .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
         .then((res) => {
           if (res.status === 200) {
-            setRecipesList(res.data.meals);
+            if (res.data.meals && res.data.meals.length > 0) {
+              setRecipesList(res.data.meals);
+              setIsLoading(false);
+            } else {
+              setRecipesList([]);
+              setIsLoading(false);
+            }
           }
         });
     }
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (recipesList.length !== 0) {
       setIsLoading(false);
     }
   }, [recipesList]);
+*/
+  let showRecipeItem = null;
 
-  let showRecipeItem = recipesList.map((recipe) => (
+  if (recipesList && recipesList.length > 0) {
+    showRecipeItem = recipesList.map((recipe) => (
+      <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
+    ));
+  }
+
+  /* let showRecipeItem = recipesList.map((recipe) => (
     <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
   ));
+*/
 
   return (
     <>
@@ -68,7 +88,7 @@ const Recipes = () => {
           )}
           <ul
             className={`${style.recipesList} d-flex flex-column flex-lg-row flex-wrap align-items-stretch justify-content-center`}>
-            {showRecipeItem}
+            {showRecipeItem ? showRecipeItem : <ErrorPage />}
           </ul>
           <BackButton backBtn={handleBackBtn} />
         </section>

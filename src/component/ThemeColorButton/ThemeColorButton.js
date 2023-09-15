@@ -9,7 +9,7 @@ const ThemeColorButton = (props) => {
     <>
       <div
         className={`${style.themeColorButton} ${
-          props.themeActive ? style.active : ""
+          props.themeActive ? style.active : style.inactive
         } d-flex flex-column justify-content-center align-items-center`}
         onClick={() => {
           theme.changeTheme(`${props.themeColor}`);

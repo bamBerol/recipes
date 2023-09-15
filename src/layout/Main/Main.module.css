@@ -2,12 +2,4 @@
   width: 100%;
   position: relative;
   flex-grow: 1;
-  background: linear-gradient(
-      97deg,
-      rgba(214, 223, 225, 0.3897934173669467) 100%,
-      rgba(214, 223, 225, 0.1516981792717087) 100%
-    ),
-    url(../../images/main2.jpg) center;
-  background-size: cover;
-  overflow: hidden;
 }
