@@ -9,6 +9,7 @@
     top: 6rem;
     right: 1rem;
     cursor: pointer;
+    z-index: 2;
   }
   .bucketBtn {
     width: 2rem;

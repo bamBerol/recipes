@@ -10,7 +10,7 @@ import ThemeButton from "../ThemeButton/ThemeButton";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import style from "./Main.module.css";
 
-const Main = () => {
+const Main = ({ searchIsClicked }) => {
   const [categoryName, setCategoryName] = useState("");
 
   let navigate = useNavigate();
@@ -28,7 +28,7 @@ const Main = () => {
       className={`${style.main} d-flex align-items-stretch justify-content-center`}>
       <ThemeButton />
       <Routes>
-        <Route path="/" exact element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route
           path="/categories"
           element={
@@ -43,8 +43,15 @@ const Main = () => {
           element={<RecipeDetail categoryName={categoryName} />}></Route>
         <Route
           path="/search"
-          element={<Search backBtn={handleBackBtnClick} />}></Route>
-        <Route path="/search/:search" element={<Recipes />}></Route>
+          element={
+            <Search
+              backBtn={handleBackBtnClick}
+              searchIsClicked={searchIsClicked}
+            />
+          }></Route>
+        <Route
+          path="/search/:search"
+          element={<Recipes searchIsClicked={searchIsClicked} />}></Route>
         <Route path="/search/:search/:id" element={<RecipeDetail />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

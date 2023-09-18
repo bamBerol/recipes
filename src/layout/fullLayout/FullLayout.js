@@ -1,12 +1,19 @@
+import { useState } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 
 const FullLayout = () => {
+  const [searchIsClicked, setSearchIsClicked] = useState(false);
+
+  const handleSearchIsClicked = (value) => {
+    setSearchIsClicked(value);
+  };
+
   return (
     <>
-      <Header />
-      <Main />
+      <Header searchIsClicked={searchIsClicked} />
+      <Main searchIsClicked={handleSearchIsClicked} />
       <Footer />
     </>
   );

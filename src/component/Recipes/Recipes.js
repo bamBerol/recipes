@@ -7,7 +7,7 @@ import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import style from "./Recipes.module.css";
 import ErrorPage from "../../layout/ErrorPage/ErrorPage";
 
-const Recipes = () => {
+const Recipes = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [recipesList, setRecipesList] = useState([]);
 
@@ -18,6 +18,7 @@ const Recipes = () => {
     if (name !== undefined) {
       navigate("/categories");
     } else if (search !== undefined) {
+      props.searchIsClicked(false);
       navigate("/search");
     }
   };
@@ -30,8 +31,10 @@ const Recipes = () => {
           if (res.status === 200) {
             if (res.data.meals && res.data.meals.length > 0) {
               setRecipesList(res.data.meals);
+              setIsLoading(false);
             } else {
               setRecipesList([]);
+              setIsLoading(false);
             }
           }
         });
@@ -52,12 +55,6 @@ const Recipes = () => {
     }
   }, []);
 
-  /* useEffect(() => {
-    if (recipesList.length !== 0) {
-      setIsLoading(false);
-    }
-  }, [recipesList]);
-*/
   let showRecipeItem = null;
 
   if (recipesList && recipesList.length > 0) {
@@ -65,11 +62,6 @@ const Recipes = () => {
       <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
     ));
   }
-
-  /* let showRecipeItem = recipesList.map((recipe) => (
-    <RecipeItem key={recipe.idMeal} name={name} info={recipe} />
-  ));
-*/
 
   return (
     <>
@@ -83,7 +75,7 @@ const Recipes = () => {
           ) : (
             <h2 className={`${style.title} text-center`}>
               {" "}
-              {"Result of search for " + search + " :"}
+              {`Result of search for: "${search}"`}
             </h2>
           )}
           <ul

@@ -3,8 +3,11 @@ import style from "./Preparation.module.css";
 const Preparation = (props) => {
   const regExp = /(?<=[.!?])\s+(?=[A-Z0-9])/;
   const instruction = props.info.strInstructions.split(regExp);
+  const rightInstruction = instruction.filter(
+    (element) => !/\d+\./.test(element)
+  );
 
-  const prepInstruction = instruction.map((instruction, index) => (
+  const prepInstruction = rightInstruction.map((instruction, index) => (
     <li key={index}>{instruction}</li>
   ));
 
