@@ -12,7 +12,10 @@ const FullLayout = () => {
 
   return (
     <>
-      <Header searchIsClicked={searchIsClicked} />
+      <Header
+        searchIsClicked={searchIsClicked}
+        handleSearchIsClicked={handleSearchIsClicked}
+      />
       <Main searchIsClicked={handleSearchIsClicked} />
       <Footer />
     </>

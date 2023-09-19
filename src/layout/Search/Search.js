@@ -11,13 +11,12 @@ const Search = ({ backBtn, searchIsClicked }) => {
   const [search, setSearch] = useState("");
 
   const theme = useContext(ThemeContext);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     setSearch(e.target.value.toLowerCase());
   };
 
-  /*
   const handleSearchBtn = () => {
     let regex = /^[A-Za-z]{3,10}$/;
     let nameSearch = search;
@@ -34,6 +33,7 @@ const Search = ({ backBtn, searchIsClicked }) => {
       //focusOnInput();
     }
   };
+  /*
   const focusOnInput = () => {
     inputRef.current.focus();
   };
@@ -52,6 +52,7 @@ const Search = ({ backBtn, searchIsClicked }) => {
           <InputSearch
             value={search}
             handleSearch={handleSearch}
+            handleSearchBtn={handleSearchBtn}
             searchIsClicked={searchIsClicked}
           />
           {/*<input
@@ -65,8 +66,7 @@ const Search = ({ backBtn, searchIsClicked }) => {
             placeholder="Search here"></input>*/}
           <button
             className={`${style.searchBtn} ${theme.color}`}
-            //onClick={handleSearchBtn}
-          >
+            onClick={handleSearchBtn}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>

@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputSearch from "../../component/InputSearch/InputSearch";
 import logo from "../../logo.svg";
 import style from "./Header.module.css";
 
-const Header = ({ searchIsClicked }) => {
+const Header = ({ searchIsClicked, handleSearchIsClicked }) => {
+  const [searchHeader, setSearchHeader] = useState([]);
   let navigate = useNavigate();
 
+  const handleHeaderSearch = (e) => {
+    setSearchHeader(e.target.value.toLowerCase());
+  };
+
+  const handleHeaderSearchBtn = () => {
+    let regex = /^[A-Za-z]{3,10}$/;
+    let search = searchHeader;
+
+    if (regex.test(search) !== false) {
+      navigate(`/search/${search}`);
+      setSearchHeader("");
+    } else {
+      alert(
+        "The entered name must have a min. 3 max 10 characters without spaces, numbers and special characters"
+      );
+      setSearchHeader("");
+    }
+  };
+
   const handleBackHome = () => {
+    handleSearchIsClicked(false);
     navigate("/");
     window.scrollTo(0, 0);
   };
@@ -28,10 +49,12 @@ const Header = ({ searchIsClicked }) => {
 
       {searchIsClicked ? (
         <div className={`${style.input} `}>
-          <input
-            className={`form-control`}
-            type="text"
-            placeholder="Search here"></input>
+          <InputSearch
+            valueHeader={searchHeader}
+            searchIsClicked={searchIsClicked}
+            handleHeaderSearch={handleHeaderSearch}
+            handleHeaderSearchBtn={handleHeaderSearchBtn}
+          />
         </div>
       ) : (
         ""

@@ -4,8 +4,7 @@ import style from "./BackButton.module.css";
 
 const BackButton = (props) => {
   const theme = useContext(ThemeContext);
-  //console.log(props.searchIsClicked);
-  //props.searchIsClicked(false);
+
   return (
     <button
       className={`${style.backBtn} ${theme.color}`}

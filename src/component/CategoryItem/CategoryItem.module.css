@@ -3,6 +3,11 @@
   width: 100%;
 }
 .li {
+  background: linear-gradient(
+    0deg,
+    rgba(214, 223, 225, 0.4150035014005602) 100%,
+    rgba(214, 223, 225, 0.3897934173669467) 100%
+  );
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   overflow: hidden;
@@ -18,6 +23,7 @@
   padding: 1rem;
   z-index: 1;
   transition: all 0.2s;
+  border-top: 1px solid transparent;
 }
 .title {
   text-transform: capitalize;
@@ -39,8 +45,9 @@
     transition: transform 0.2s;
   }
   .li:hover .cardText {
-    background-color: #d6dfe1;
-    color: #004562;
+    border-top: 1px solid var(--red);
+    background-color: var(--grey);
+    color: var(--blue);
     font-weight: bold;
     transition: all 0.2s;
   }
