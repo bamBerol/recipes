@@ -16,17 +16,13 @@ html {
   ::-webkit-scrollbar {
     width: 2px;
   }
-  /* Track */
+
   ::-webkit-scrollbar-track {
     background: var(--white);
   }
-
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--blue);
   }
-
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }

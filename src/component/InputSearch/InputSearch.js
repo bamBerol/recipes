@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import style from "./InputSearch.module.css";
 
 const InputSearch = (props) => {
   const inputRef = useRef(null);
@@ -29,7 +28,7 @@ const InputSearch = (props) => {
     <>
       <input
         ref={inputRef}
-        className={`${style.inputSearch} form-control`}
+        className={`form-control`}
         value={value}
         onChange={handleChange}
         onKeyDown={(e) => (e.key === "Enter" ? handleKeyDown() : null)}

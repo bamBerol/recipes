@@ -11,7 +11,6 @@ const ThemeButton = () => {
   useEffect(() => {
     let handleDocumentClick = (e) => {
       if (!themeButtonRef.current.contains(e.target)) {
-        console.log("cos innego");
         setThemeActive(false);
       }
     };

@@ -31,11 +31,11 @@
     margin: 0 auto;
   }
   .ingredientsList {
-    max-width: 300px;
     margin: 0 auto;
   }
 }
 @media (min-width: 992px) {
-  .aside {
+  .ingredientsList {
+    max-width: 300px;
   }
 }

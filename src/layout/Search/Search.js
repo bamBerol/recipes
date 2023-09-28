@@ -1,4 +1,4 @@
-import { useContext, useState, useRef, useEffect } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ThemeContext from "../../context/ThemeContext";
 import InputSearch from "../../component/InputSearch/InputSearch";
@@ -30,18 +30,9 @@ const Search = ({ backBtn, searchIsClicked }) => {
       );
       setSearch("");
       searchIsClicked(false);
-      //focusOnInput();
     }
   };
-  /*
-  const focusOnInput = () => {
-    inputRef.current.focus();
-  };
 
-  useEffect(() => {
-    focusOnInput();
-  }, []);
-*/
   return (
     <section
       className={`${style.search} container-fluid d-flex flex-column align-items-center justify-content-around justify-content-lg-evenly`}>
@@ -55,15 +46,6 @@ const Search = ({ backBtn, searchIsClicked }) => {
             handleSearchBtn={handleSearchBtn}
             searchIsClicked={searchIsClicked}
           />
-          {/*<input
-            ref={inputRef}
-            className={`${style.inputSearch} form-control`}
-            value={search}
-            onChange={handleSearch}
-            onKeyDown={(e) => (e.key === "Enter" ? handleSearchBtn() : null)}
-            type="text"
-            maxLength={10}
-            placeholder="Search here"></input>*/}
           <button
             className={`${style.searchBtn} ${theme.color}`}
             onClick={handleSearchBtn}>

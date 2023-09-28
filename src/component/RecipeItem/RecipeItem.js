@@ -9,7 +9,7 @@ const RecipeItem = (props) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <div className={` d-flex align-items-lg-center`}>
+    <div className={`d-flex justify-content-center`}>
       <Link
         to={
           name !== undefined

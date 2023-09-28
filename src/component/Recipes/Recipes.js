@@ -71,7 +71,7 @@ const Recipes = (props) => {
         <section
           className={`${style.recipes} d-flex flex-column align-items-center justify-content-between`}>
           {name !== undefined ? (
-            <h2 className={`${style.title}`}> {name} </h2>
+            <h2 className={`${style.title}`}> {name}: </h2>
           ) : (
             <h2 className={`${style.title} text-center`}>
               {" "}

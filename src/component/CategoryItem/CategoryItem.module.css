@@ -1,6 +1,7 @@
 .link {
   text-decoration: none;
   width: 100%;
+  max-width: 450px;
 }
 .li {
   background: linear-gradient(
