@@ -23,7 +23,7 @@ const Ingredients = (props) => {
   });
 
   return (
-    <div className={`${style.aside} d-flex flex-column`}>
+    <div className={`d-flex flex-column`}>
       <div className={`${style.imgCard}`}>
         <img src={photo} alt={name} className={`${style.recipeImg}`} />
       </div>

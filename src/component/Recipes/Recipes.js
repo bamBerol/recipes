@@ -53,7 +53,7 @@ const Recipes = (props) => {
           }
         });
     }
-  }, [search]);
+  }, [name, search]);
 
   let showRecipeItem = null;
 
