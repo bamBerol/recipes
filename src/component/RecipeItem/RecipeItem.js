@@ -9,7 +9,7 @@ const RecipeItem = (props) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <div className={`d-flex justify-content-center`}>
+    <div className={`d-flex justify-content-center align-items-center`}>
       <Link
         to={
           name !== undefined
@@ -23,7 +23,8 @@ const RecipeItem = (props) => {
           alt={strMeal}
         />
         <div
-          className={`${style.cardText} ${theme.color} d-flex flex-wrap  text-center justify-content-center align-items-center rounded-bottom`}>
+          className={`${style.cardText} ${theme.color} d-flex flex-wrap  
+          text-center justify-content-center align-items-center rounded-bottom`}>
           <h5 className={`${style.title}`}>{strMeal}</h5>
         </div>
       </Link>
