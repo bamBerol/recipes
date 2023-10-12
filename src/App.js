@@ -25,7 +25,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <ThemeContext.Provider
         value={{ color: themeColor, changeTheme: handleChangeTheme }}>
         <div className="App">{start}</div>
